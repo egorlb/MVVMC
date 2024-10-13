@@ -11,8 +11,7 @@ class ViewControllerC: UIViewController {
     var viewModel: ViewModelC?
     
     @IBAction func navigateToD(_ sender: Any) {
-        
-        viewModel?.delegate?.navigateToScreenD()
+        viewModel?.navigateToScreenD()
     }
 }
 

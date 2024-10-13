@@ -8,5 +8,5 @@
 import Foundation
 
 class ViewModelD {
-    var coordinator: CoordinatorD?
+    var coordinator: AppCoordinator?
 }

@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var appCoordinator: MainCoordinator?
+    var appCoordinator: AppCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,16 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let coordinatorA = CoordinatorA()
-        coordinatorA.start()
-        if let viewControllerA = coordinatorA.rootViewController {
-            let navigationController = UINavigationController(rootViewController: viewControllerA)
-            appCoordinator = MainCoordinator(rootViewController: navigationController)
-            appCoordinator?.start()
-            
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        }
+        let window = UIWindow(windowScene: windowScene)
+        let builder = Builder()
+        appCoordinator = AppCoordinator(builder: builder, window: window)
+        appCoordinator?.start()
+        
+        self.window = window
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

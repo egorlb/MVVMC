@@ -12,7 +12,7 @@ class ViewControllerA: UIViewController {
     
 
     @IBAction func navigateToB(_ sender: Any) {
-        viewModel?.delegate?.navigateToScreenB()
+        viewModel?.navigateToScreenB()
     }
 }
 

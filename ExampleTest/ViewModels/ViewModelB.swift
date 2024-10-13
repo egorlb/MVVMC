@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol ViewModelDelegateB: AnyObject {
-    func navigateToScreenC()
-}
-
 class ViewModelB {
-    var coordinator: CoordinatorB?
-    weak var delegate: ViewModelDelegateB?
+    var coordinator: AppCoordinator?
+    
+    func navigateToScreenC() {
+        coordinator?.showViewControllerC()
+    }
 
 }
